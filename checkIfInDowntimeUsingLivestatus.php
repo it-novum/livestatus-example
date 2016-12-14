@@ -1,12 +1,12 @@
 <?php
 
+require_once "Livestatus.php";
+
 // The livestatus socket is defiend in your nagios.cfg:
 // broker_module=/opt/openitc/nagios/livestatus/lib/mk-livestatus/livestatus.o /opt/openitc/nagios/livestatus/run/livestatus.sock
 
 var_dump(checkIfInDowntimeUsingLivestatus('localhost'));
 var_dump(checkIfInDowntimeUsingLivestatus('localhost', 'Ping'));
-
-require_once "Livestatus.php";
 
 function checkIfInDowntimeUsingLivestatus($hostname, $servicedesc = null){
 	$livestatus = new Livestatus('/opt/openitc/nagios/livestatus/run/livestatus.sock');
